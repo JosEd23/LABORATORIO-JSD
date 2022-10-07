@@ -36,20 +36,20 @@ const crearArchivo = async(nombre, montofinanciamiento, meses, tasaInteres) => {
             let fechaPosion = new Date(date);
             let _saldoDespues = saldoBase - interesMensual;
             let _cuotaPago = interesMensual + capitalMesAbono;
-            
+            let _mesPago = listaMeses[fechaPosion.getMonth()];
 
 
             //sumar una posicion
             mesInicio = mesInicio + 1;
             //creamos propiedades 
-            let newItem = {
+            let newItem = { 
                 SaldoBase: saldoBase.toFixed(2),
                 SaldoD: _saldoDespues.toFixed(2),
                 coutaInteres: interesMensual.toFixed(2),
                 coutaCapital: capitalMesAbono.toFixed(2),
                 coutaPago: _cuotaPago.toFixed(2),
                 pagoMes: _mesPago,
-            
+                fechaPago: fechaPosion
 
             }
             listaPagos.push(newItem);
